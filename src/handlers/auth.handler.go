@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"log"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
@@ -34,9 +33,6 @@ func CreateUser(c *fiber.Ctx) error {
 			"message": "Username, email, and password are required",
 		})
 	}
-	// loging the user **** Remove after use
-	log.Printf("User loger: %+v\n", user)
-
 	// Hashing the password using bcrypt
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 	if err != nil {
@@ -85,8 +81,6 @@ func LoginUser(c *fiber.Ctx) error {
 		})
 	}
 
-	log.Printf("User logging in: %+v\n", newLogin)
-
 	var currentUser models.User
 	result := db.Where("email = ?", newLogin.Email).First(&currentUser)
 	if result.Error != nil {
@@ -102,8 +96,6 @@ func LoginUser(c *fiber.Ctx) error {
 			"data":    result.Error.Error(),
 		})
 	}
-
-	log.Printf("Current user: %+v\n", currentUser)
 
 	isAuthenticated := bcrypt.CompareHashAndPassword([]byte(currentUser.Password), []byte(newLogin.Password))
 	if isAuthenticated != nil {
@@ -140,25 +132,18 @@ func GenerateTokens(user models.User) (string, string, error) {
 	access_token_secret := config.Config("ACCESS_TOKEN_SECRET")
 	refresh_token_secret := config.Config("REFRESH_TOKEN_SECRET")
 
-	log.Print("Access token secret key", access_token_secret)
 	var aTokenExpirationTime = time.Now().UTC().Add(20 * time.Minute).Unix()
 	var rTokenExpirationTime = time.Now().UTC().Add(24 * time.Hour).Unix()
-	// var aTokenExpirationTime = time.Now().Add(10 * time.Minute).Format(time.RFC3339)
-	// var rTokenExpirationTime = time.Now().Add(24 * time.Hour).Format(time.RFC3339)
-	// var aTokenExpirationTime int64 = time.Now().Add(10 * time.Minute).Unix()
-	// var rTokenExpirationTime int64 = time.Now().Add(24 * time.Hour).Unix()
 	aToken := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"id":    user.ID,
 		"email": user.Email,
-		"exp":   aTokenExpirationTime, //float32(aTokenExpirationTime.Unix())
+		"exp":   aTokenExpirationTime,
 	})
-	log.Print("atoken", aToken)
 
 	accessToken, accessTokenError := aToken.SignedString([]byte(access_token_secret))
 	if accessTokenError != nil {
 		return "Access token is not ready", "", accessTokenError
 	}
-	log.Print("signature generation", accessToken)
 	rToken := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"id":    user.ID,
 		"email": user.Email,
@@ -198,7 +183,8 @@ func SaveTokens(tokenString string, user models.User) (string, error) {
 		token.Token = tokenString
 		token.UserID = user.ID.String()
 		token.UserEmail = user.Email
-		if err := db.Save(&token).Error; err != nil {
+		err := db.Save(&token).Error
+		if err != nil {
 			return "Could not update token", err
 		}
 	}

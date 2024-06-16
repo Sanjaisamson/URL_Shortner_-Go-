@@ -6,13 +6,12 @@ import (
 	middleware "github.com/sanjaisamson/URL_Shortner/src/middlewares"
 )
 
-// SetupRoutes func
 func SetupURL_Routes(app *fiber.App) {
 	// grouping
-	api := app.Group("/api")
-	v1 := api.Group("/url")
+	apiRoutes := app.Group("/api")
+	urlRoutes := apiRoutes.Group("/url")
 	// routes
-	v1.Post("/create", handlers.CreateUser)
-	v1.Post("/clicked/:code/:id", handlers.LoginUser)
-	v1.Post("/links", middleware.AccessTokenVerification, handlers.Logout)
+	urlRoutes.Post("/create", middleware.AccessTokenVerification, handlers.Createlink)
+	urlRoutes.Get("/clicked/:code/:id", handlers.HandleVisits)
+	urlRoutes.Post("/links", middleware.AccessTokenVerification, handlers.GetAllLinks)
 }

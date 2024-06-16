@@ -1,0 +1,20 @@
+###
+POST http://localhost:3000/api/url/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImV4cCI6MTcxODU2NDUyNiwiaWQiOiIyMzAzOGVjYS0wNjhmLTQ4YzktOTMxNS1hMTRmMTk1Y2RjNDQifQ.x0ccRibd2H1qeUFALhjVCJc2akaoAyVoMRGsKIhA1X4
+Content-Type: application/json
+
+{
+    "Url": "https://cse.noticebard.com/internships/sde-intern-at-indmoney-bangalore/",
+    "Url_code":"helloo"
+}
+###
+
+###
+GET http://localhost:3000/api/url/clicked/helloo/9e435582-c148-4c43-a3c9-7b0474aadf35
+
+###
+
+###
+POST http://localhost:3000/api/url/links
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImV4cCI6MTcxODU2NDUyNiwiaWQiOiIyMzAzOGVjYS0wNjhmLTQ4YzktOTMxNS1hMTRmMTk1Y2RjNDQifQ.x0ccRibd2H1qeUFALhjVCJc2akaoAyVoMRGsKIhA1X4
+###
