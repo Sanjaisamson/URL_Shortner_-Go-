@@ -1,0 +1,43 @@
+.link-text{
+    display:flex;
+    gap: 200px;
+    align-items: center;
+    align-content: center;
+}
+.link-card{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.link-each-card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .link-each-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .link-each-card-img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .link-each-card-body {
+    padding: 16px;
+  }
+  
+  .link-each-card-title {
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .link-each-card-text {
+    margin-bottom: 0;
+    color: #666;
+  }

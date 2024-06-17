@@ -1,0 +1,77 @@
+.reg-Container{
+    height: 950px;
+    width: auto;
+    background-image: url("../assets/LoginPage-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center; /* Center the image */
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.reg-card .ant-card-body{
+    height: 700px;
+    width: 400px;
+    box-shadow: 20px;
+    background-color: white;
+    border-radius: 20px;
+}
+.reg-card .ant-card-body Form h4{
+    color: #414785;
+    display: inline-block;
+    justify-content: flex-start;
+    font-size: 18px;
+    font-family: "Josefin Sans", sans-serif;
+    margin: 10px;
+    
+}
+.reg-card .ant-card-body Form h2{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: #414785;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    margin-top: -9px;
+    margin-bottom: 10px;
+    padding: 30px;
+}
+.reg-card-already-account-section{
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+.already-account-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.already-account-section .ant-btn{
+    margin: 0px;
+    padding: 0px;
+}
+.reg-button{
+    background: -webkit-linear-gradient(0deg, #e2906e 0%, #e83a99 100%);
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin-left: 25%;
+    margin-bottom: 8%;
+}
+.reg-button-content{
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.reg-button .ant-btn{
+    margin: 0px;
+    padding: 0px;
+}
