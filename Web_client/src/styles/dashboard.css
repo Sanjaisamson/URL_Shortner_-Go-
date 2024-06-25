@@ -1,75 +1,10 @@
-.container {
-    background-color: white;
-    height: auto;
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding :1%;
-    align-items: center;
+.hompage-Container{
+    height: 100%;
     width: 100%;
-    height: 10%;
 }
-  
-.logo img {
-    margin-left: 10%;
-    width: 100px;
-    height: 100px;
-}
-
-.navbar-content{
-    display: flex;
-    width: 300px;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.navbar-content h4{
-    color: black;
-}
-
-.userIcon{
-    color: black;
-    padding: 20px;
-}
-.content-text{
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
-}
-.content-cards{
-    margin: 100px 0px;
-    border: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    gap: 200px;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-}
-/* .eachcard{
-    display: flex;
-    flex-direction: row;
-} */
-.content-cards .ant-card-body{
-    display: flex;
-    justify-content: space-between;
-    padding: 0px;
+.nav-bar-div{
     margin: 0px;
-    align-items: center;
 }
-.card-elements{
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-}
-.card-elements Button{
-    font-size: medium;
-    font-weight: 500;
+.banner-div{
+    margin: 0px;
 }

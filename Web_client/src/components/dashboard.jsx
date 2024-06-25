@@ -5,8 +5,10 @@ import CONSTANTS from '../constants/constants'
 import axios from 'axios';
 import {UserCircle2Icon} from "lucide-react"
 import {Button,Card} from 'antd';
+import {WhySection} from './why-section'
 import {useNavigate} from 'react-router-dom'
 import {NavbarSec} from "./navbar"
+import {Banner} from "./banner"
 
 
 
@@ -53,7 +55,15 @@ export const Dashboard = () => {
   }
   return (
     <div className='hompage-Container'>
+      <div className='nav-bar-div'>
           <NavbarSec/>
+          </div>
+          <div className='banner-div'>
+            <Banner/>
+          </div>
+          <div className='banner-div'>
+          <WhySection/>
+          </div>
     </div>
   )
 }

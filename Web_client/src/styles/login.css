@@ -1,6 +1,6 @@
 .loginContainer{
-    height: 695px;
-    width: auto;
+    height: 100%;
+    width: 100%;
     background-image: url("../assets/LoginPage-bg.jpg");
     background-repeat: no-repeat;
     background-position: center; /* Center the image */
@@ -8,6 +8,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.login-card{
+    padding: 50px;
 }
 .login-card .ant-card-body{
     height: 600px;

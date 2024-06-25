@@ -2,30 +2,27 @@
     height: 100px;
     display: flex;
     justify-content: center;
-    gap: 20%;
     align-items: center;
-    background-color: #1e12d0;
-    border: 1px solid rgba(1, 1, 10, 0.288);
+    background:transparent;
     transition: transform .5s ease-in-out;
     width: 100%;
-    /* z-index: 9999; */
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    gap: 50px;
+    -webkit-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+    padding: 15px 0;
     transition:  0.32s ease-in-out;
 }
-/********* navbar links ********/
- .logo{
+.logo{
     margin-top: 0px;
     padding: 0px;
-    width: 50%;
-    height: 100px;
+    text-align: center;
  }
  .nav-links-div{
     background-color: transparent;
-    width: 50%;
- }
- .navbar-text-div{
-    background-color: transparent;
-    height: fit-content;
-    width: auto;
  }
  /*Styling Links*/
  .nav-links-div ul {
@@ -36,257 +33,78 @@
     display: flex;
     list-style: none; 
     width: auto;
-    justify-content: center;
-    gap: 10%;
+    gap: 50px;
+    justify-content: space-evenly;
     align-items: center;
     text-transform: uppercase;
  }
  .nav-links li a{
     text-decoration: none;
-    color: black;
+    color: white;
  }
- .nav-links li a:hover {
-    color: red;
-    font-weight: 600;
+ .nav-links li a:before{
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   border-top: 2px solid #262626;
+   border-bottom: 2px solid #262626;
+   transform: scaleY(2);
+   opacity: 0;
+   transition: .3s;
+ }
+ .nav-links li a:after{
+   content: '';
+   position: absolute;
+   top: 2px;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #262626; 
+   transform: scale(0);
+   opacity: 0;
+   transition: .3s;
+   z-index: -1;
+
+ }
+ .nav-links li a:hover{
+   color: #fff;
+        &:before {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        &:after {
+          transform: scaleY(1);
+          opacity: 1;
+        }
  }
  .nav-links li {
     position: relative;
  }
- .nav-links li a:hover::before{
-    width: 80%;
+ .navbar-button-group{
+   margin-left: 10px;
+   display: flex;
+   gap:20px;
  }
- 
- /*Styling Hamburger Icon*/
- .hamburger div{
-    width: 30px;
-    height:3px;
-    background: black;
-    margin: 5px;
-    transition: all 0.3s ease;
- }
- .hamburger{
-    display: none;
- }
- /*Stying for small screens*/
- @media screen and (max-width: 800px){
-    nav{
-        position: fixed;
-        z-index: 3;
-    }
-    .hamburger{
-        display:block;
-        position: absolute;
-        cursor: pointer;
-        right: 5%;
-        transform: translate(-5%, -50%);
-        z-index: 2;
-        transition: all 0.7s ease;
-    }
-    .nav-links{
-        position: fixed;
-        background: #131418;
-        height: 100vh;
-        width: 100%;
-        flex-direction: column;
-        clip-path: circle(50px at 90% -20%);
-        -webkit-clip-path: circle(50px at 90% -10%);
-        transition: all 1s ease-out;
-        pointer-events: none;
-    }
-    .navbar-text-div{
-        position: fixed;
-        background: #131418;
-        height: 100vh;
-        width: 100%;
-        flex-direction: column;
-        clip-path: circle(50px at 90% -20%);
-        -webkit-clip-path: circle(50px at 90% -10%);
-        transition: all 1s ease-out;
-        pointer-events: none;
-    }
-    .navbar-text-div.show {
-        clip-path: circle(1000px at 90% -10%);
-        -webkit-clip-path: circle(1000px at 90% -10%);
-        pointer-events: all;
-    }
-    .nav-links.open{
-        justify-content: normal;
-        align-items:baseline;
-        padding: 20px;
-        clip-path: circle(1000px at 90% -10%);
-        -webkit-clip-path: circle(1000px at 90% -10%);
-        pointer-events: all;
-    }
-    .nav-links li{
-        opacity: 0;
-    }
-    .nav-links li:nth-child(1){
-        transition: all 0.5s ease 0.2s;
-    }
-    .nav-links li:nth-child(2){
-        transition: all 0.5s ease 0.4s;
-    }
-    .nav-links li:nth-child(3){
-        transition: all 0.5s ease 0.6s;
-    }
-    .nav-links li:nth-child(4){
-        transition: all 0.5s ease 0.7s;
-    }
-    .nav-links li:nth-child(5){
-        transition: all 0.5s ease 0.8s;
-    }
-    .nav-links li:nth-child(6){
-        transition: all 0.5s ease 0.9s;
-        margin: 0;
-    }
-    .nav-links li:nth-child(7){
-        transition: all 0.5s ease 1s;
-        margin: 0;
-    }
-    li.fade{
-        opacity: 1;
-    }
- }
- /*Animating Hamburger Icon on Click*/
- .toggle .line1{
-    transform: rotate(-45deg) translate(-5px,6px);
- }
- .toggle .line2{
-    transition: all 0.7s ease;
-    width:0;
- }
- .toggle .line3{
-    transform: rotate(45deg) translate(-5px,-6px);
- }
- 
-
-/********Social-icons design******/
-
-.social-icon {
-    display: inline-block;
-    margin-left: 14px;
-    justify-content: space-between;
-}
-.social-icon a {
-    width: 42px;
-  height: 42px;
-  background: rgba(217, 217, 217, 0.1);
-  display: inline-flex;
-  position: relative;
-  border-radius: 50%;
-  margin-right: 30px;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  overflow: hidden; 
-}
-.social-icon a::before {
-    content: "";
-    width: 0%;
-    height: 100%;
-    position: absolute;
-    background-color: white;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    transition: 0.3s ease-in-out;
-}
-.social-icon a:hover::before {
-    transform: scale(1);
-}
-.social-icon a img {
-	width: 40%;
-	z-index: 1;
-	transition: 0.3s ease-in-out;
-}
-.social-icon a:hover img {
-	filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
-}
-
-.navbar-text button {
+.navbar-login-button{
     font-weight: 700;
-    color: #fff;
-    border: 1px solid #fff;
-    padding: 18px 34px;
-    font-size: 18px;
-    margin-left: 18px;
-    position: relative;
-    background-color: transparent;
-    transition: 0.3s ease-in-out;
-  }
-  .navbar-text button span {
-    z-index: 1;
-  }
-  .navbar-text button::before {
-    content: "";
-    width: 0%;
-    height: 100%;
-    position: absolute;
-    background-color: white;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    transition: 0.3s ease-in-out;
-  }
-  .navbar-text button:hover {
-    color: #121212;
-  }
-  .navbar-text button:hover::before {
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      transform: scale(1);
-  }
-
-  /*******Hover-Design*******/
-
-.buttoncontainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 300px; 
-    background: transparent;
+    border-radius: 10px;
+    padding: 10px;
+    background: -webkit-linear-gradient(0deg, #e2906e 0%, #e83a99 100%);
 }
-.button {
-    margin: 0;
-    height: auto;
-    background: transparent;
-    padding: 0;
-    border: none;
-    cursor: pointer;
-  }
-  .button {
-    --border-right: 6px;
-    --text-stroke-color: rgba(255,255,255,0.6);
-    --animation-color: #03959e;
-    --fs-size: 2em;
-    letter-spacing: 3px;
-    text-decoration: none;
-    font-size: var(--fs-size);
-    font-family: "Arial";
-    position: relative;
-    text-transform: uppercase;
-    color: transparent;
-    -webkit-text-stroke: 1px var(--text-stroke-color);
-  }
-  .hover-text {
-    position: absolute;
-    box-sizing: border-box;
-    content: attr(data-text);
-    color: var(--animation-color);
-    width: 0%;
-    inset: 0;
-    border-right: var(--border-right) solid var(--animation-color);
-    overflow: hidden;
-    transition: 0.5s;
-    -webkit-text-stroke: 1px var(--animation-color);
-  }
-  .button:hover .hover-text {
-    width: 100%;
-    filter: drop-shadow(0 0 23px var(--animation-color))
-  }
- 
-/**************/
-
+.navbar-register-button{
+   align-items: center;
+   padding: 10px;
+   background: -webkit-linear-gradient(0deg, #e2906e 0%, #e83a99 100%);
+   width: 150px;
+   border-radius: 10px;
+   font-weight: 700;
+}
+.navbar-register-button:hover{
+   background: transparent;
+}
+.navbar-login-button:hover{
+   background: transparent;
+}

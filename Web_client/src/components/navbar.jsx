@@ -7,6 +7,15 @@ import { Image } from 'antd';
 
 export const NavbarSec = () => {
 
+  window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('navbar');
+    if (window.scrollY > 0) {
+      navbar.style.backgroundColor = '#2c18b4'; // Replace with your desired color
+    } else {
+      navbar.style.backgroundColor = 'transparent'; // Or your initial color
+    }
+  });
+
 const hamburgerRef = useRef();
   const navLinksRef = useRef();
   const contactsRef = useRef()
@@ -40,7 +49,7 @@ const hamburgerRef = useRef();
         };
       }, []);
   return (
-    <div className="navbarcontainer">
+    <div id='navbar' className="navbarcontainer">
       <div className='logo'>
          <img src={logo} alt="image"></img>
         </div>
@@ -52,29 +61,13 @@ const hamburgerRef = useRef();
         <div className="nav-links-div">
         <ul className="nav-links" ref={navLinksRef}>
             <li><Link to="/">Home</Link></li>
-            <li><Link to ="/about">About me</Link></li>
-            <li><Link to ="/skills">Skills</Link></li>
-            <li><Link to="/projects">Works</Link></li>
-            {/* <li> <div className="navbar-text-div" ref={contactsRef} >
-              <span className="navbar-text">
-              <div className="social-icon">
-                <a href="https://www.linkedin.com/in/sanjai-samson" target="_blank">
-                  <img src={navIcon1} alt="" />
-                </a>
-                <a href="https://www.facebook.com/sanjai.samson.73?mibextid=ZbWKwL" target="_blank">
-                  <img src={navIcon2} alt="" />
-                </a>
-                <a href="https://www.instagram.com/sanjai__samson?igsh=YmtzNGpueXdvd2Fz" target="_blank">
-                  <img src={navIcon3} alt="" />
-                </a>
-              </div>
-              <HashLink to="/footer">
-                <button className="vvd">
-                  <span>Let’s Connect</span>
-                </button>
-              </HashLink>
-              </span>
-            </div></li> */}
+            <li><Link to ="/about">About Us</Link></li>
+            <li><Link to ="/skills">FAQs</Link></li>
+            <li><Link to="/projects">Blog</Link></li>
+            <div className='navbar-button-group'>
+            <li><Link className='navbar-login-button' to="/">Login</Link></li>
+            <li><Link className='navbar-register-button' to="/">Register </Link></li>
+            </div>
         </ul>
         </div>
         </div>
